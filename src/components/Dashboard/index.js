@@ -76,7 +76,7 @@ class ItemTree {
             //rename key
             this.allItems[id] = this.allItems[path+type];
             this.allItems[id].name = newPath;
-            // delete this.allItems[path+type];
+            delete this.allItems[path+type];
 
             let stack = []
 
@@ -84,22 +84,38 @@ class ItemTree {
                 for(let i = 0;i<this.allItems[newPath+type].children.length;i++){
                     stack.push(this.allItems[newPath+type].children[i]);
                     let s = this.allItems[newPath+type].children[i];
-                    s.replace(path,newPath)
-                    this.allItems[newPath+type].children[i] = s;
+                    // s.replace(path,newPath)
+                    let k = 0;
+                    while(path[k] === newPath[k]){
+                        k += 1;
+                    }
+                    let ss = newPath + s.substring(k)
+                    this.allItems[newPath+type].children[i] = ss;
+                    // this.allItems[newPath+type].children[i] = s;
                 }
+            }
+            let j = 0;
+            while(path[j] === newPath[j]){
+                j += 1;
             }
             console.log(stack)
             while(stack.length!==0){
                 let p = stack.pop()
-                p.replace(path,newPath)
-                console.log(this.allItems[p].children)
+                console.log(p)
+                let ps = newPath + p.substring(j)
+                this.allItems[ps] = this.allItems[p];
+                this.allItems[ps].name = ps.substr(0, ps.length-6);
+                delete this.allItems[p];
 
-                for(let i = 0;i<this.allItems[p].children.length;i++){
-                    stack.push(this.allItems[p].children[i]);
-                    let s = this.allItems[p].children[i];
-                    console.log(this.allItems[p].children[i]);
-                    s.replace(path,newPath)
-                    this.allItems[p].children[i] = s;
+                for(let i = 0;i<this.allItems[ps].children.length;i++){
+                    stack.push(this.allItems[ps].children[i]);
+                    let s = this.allItems[ps].children[i];
+                    let k = 0;
+                    while(path[k] === newPath[k]){
+                        k += 1;
+                    }
+                    let ss = newPath + s.substring(k)
+                    this.allItems[ps].children[i] = ss;
                 }
             }
 
