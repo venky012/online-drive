@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+.modal-backdrop.show {
+    opacity:0.3;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.modal-open .modal{
+    width: 325px;
+    height: auto;
+    margin: auto auto 0px 42vw;
+    display: block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal-dialog{
+    margin:30vh auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.modal-header{
+    border-bottom: none;
 }
 
-.App-link {
-  color: #61dafb;
+.modal-title{
+    margin:auto auto auto 74px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-content .submit{
+    width: 250px;
+    margin: 20px auto;
+    background-color: rgb(74, 183, 255);
+    color: white;
+    border: none;
+    padding: 5px;
+}
+
+.react-contextmenu{
+    cursor:pointer;
+    border:1px solid grey;
+    width:80px;
+    height:60px;
+    text-align: center;
+    background-color: white;
+}
+
+.react-contextmenu .react-contextmenu-item:nth-child(2){
+    cursor:pointer;
+    color:red;
+    padding:5px;
+}
+
+.react-contextmenu .react-contextmenu-item:hover{
+    background-color: #eeeff1;
+}
+
+@media screen and (max-width:1150px) {
+    .modal-open .modal{
+        margin:auto auto 0px 28vw;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .modal-open .modal{
+        margin:auto auto 0px 26vw;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .modal-open .modal{
+        margin:auto auto 0px 21vw;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .modal-open .modal{
+        margin:auto auto 0px 10vw;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .modal-open .modal{
+        margin:auto auto auto 5vw;
+    }
+}
+
+@media screen and (max-width:340px) {
+    .modal-open .modal{
+        width:100%;
+        margin:0px;
+    }
 }

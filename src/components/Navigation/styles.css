@@ -1,0 +1,23 @@
+.navigation{
+    margin-left: 29px;
+    display: flex;
+}
+
+.path{
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 35px;
+    color: #001800;
+    font-weight: lighter;
+    margin: 25px 0px 0px 28px;
+    word-spacing: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+}
+
+@media screen and (max-width : 768px) {
+    .navigation{
+        width: 100%;
+    }
+}

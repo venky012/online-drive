@@ -1,0 +1,15 @@
+.add-icon{
+    cursor: pointer;
+    margin: 11px;
+    width: 94px;
+    height: 105px;
+    padding: 10px;
+}
+
+.add-toggle{
+    display: flex;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100px;
+}

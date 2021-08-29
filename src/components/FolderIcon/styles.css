@@ -1,0 +1,37 @@
+.folder-bg{
+    cursor: pointer;
+    margin: 11px;
+    padding: 10px;
+    width: 122px;
+}
+
+.folder-bg:hover{
+    background:#e6f5ff;
+    border-radius: 10px;
+}
+
+.folder-bg .para{
+    font-size: 19px;
+    padding-top: 17px;
+    text-align: center;
+    font-family: system-ui;
+}
+
+.react-contextmenu{
+    cursor:pointer;
+    border:1px solid grey;
+    width:80px;
+    height:60px;
+    text-align: center;
+    background-color: white;
+}
+
+.react-contextmenu .react-contextmenu-item:nth-child(2){
+    cursor:pointer;
+    color:red;
+    padding:5px;
+}
+
+.react-contextmenu .react-contextmenu-item:hover{
+    background-color: #eeeff1;
+}
