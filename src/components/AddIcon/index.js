@@ -11,6 +11,7 @@ class AddIcon extends React.Component {
         fileName:'',
         fileTypeError:false,
         dupliError:false,
+        extError:false,
     }
 
     handleModalShow = (e) => {
@@ -28,13 +29,30 @@ class AddIcon extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let out = this.props.addItem(this.state.fileName,this.state.format)
-        if(out){
-            this.handleModalShow();
-            this.setState({fileName:'',format:'Folder',dupliError:false})
+        if(this.state.format === 'File'){
+            if(this.state.fileName.includes('.')){
+                let out = this.props.addItem(this.state.fileName,this.state.format)
+                if(out){
+                    this.handleModalShow();
+                    this.setState({fileName:'',format:'Folder',extError:false,dupliError:false})
+                }
+                else{
+                    this.setState({dupliError:true});
+                }
+            }
+            else{
+                this.setState({extError:true});
+            }
         }
         else{
-            this.setState({dupliError:true});
+            let out = this.props.addItem(this.state.fileName,this.state.format)
+            if(out){
+                this.handleModalShow();
+                this.setState({fileName:'',format:'Folder',extError:false,dupliError:false})
+            }
+            else{
+                this.setState({dupliError:true});
+            }
         }
     }
 
@@ -109,6 +127,14 @@ class AddIcon extends React.Component {
                                 style={{width:'250px',margin:'-19px auto auto auto',color:'red',fontSize:'12px'}} 
                             >
                                 {this.state.format} format should not contain '/'
+                            </p>
+                        }
+                        {
+                            this.state.extError &&
+                            <p
+                                style={{width:'250px',margin:'-19px auto auto auto',color:'red',fontSize:'12px'}} 
+                            >
+                                {this.state.format} format should contain extension
                             </p>
                         }
                         <button className="submit" type="submit" onClick={this.handleSubmit}>Create</button>
